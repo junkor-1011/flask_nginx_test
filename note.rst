@@ -17,6 +17,7 @@ using docker-compose
 
 - https://www.magata.net/memo/index.php?Nginx%2Buwsgi%2BFlask%A4%F2docker%A4%C7%C6%B0%A4%AB%A4%B9
 - https://medium.com/@rlagowski/create-flask-app-with-uwsgi-nginx-certbot-for-ssl-and-all-this-with-docker-a9f23516618d
+- https://qiita.com/arata-honda/items/e22c9df83df8ee0e9c4c
 
 (no docker)
 ~~~~~~~~~~~~
