@@ -11,7 +11,7 @@ services:
     depends_on:
     - app_flask
     ports:
-      - "8443:443"
+      - "${PORT}:443"
     volumes:
       - ./web_nginx/conf.d:/etc/nginx/conf.d
       - ./web_nginx/ssl:/etc/nginx/ssl
@@ -24,8 +24,8 @@ services:
       context: ./app_flask
       dockerfile: Dockerfile
       args:
-        - BASE_IMAGE=centos:8
-        - USER_UID=1000
+        - BASE_IMAGE=${BASE_IMAGE}
+        - USER_UID=${USER_UID}
     expose: 
       - 5000
     networks:
