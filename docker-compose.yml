@@ -11,8 +11,6 @@ services:
     depends_on:
     - app_flask
     ports:
-      #- "5000:5000"
-      #- "8080:80"
       - "8443:443"
     volumes:
       - ./web_nginx/conf.d:/etc/nginx/conf.d
@@ -25,6 +23,9 @@ services:
     build:
       context: ./app_flask
       dockerfile: Dockerfile
+      args:
+        - BASE_IMAGE=centos:8
+        - USER_UID=1000
     expose: 
       - 5000
     networks:
