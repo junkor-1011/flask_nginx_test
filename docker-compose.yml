@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  web_nginx:
+    image: nginx:alpine
+    #image: nginx:1.15-alpine
+          #    image: flask_app_test_ngix
+          #    build:
+          #      context: ./web_nginx
+          #      dockerfile: Dockerfile
+    depends_on:
+    - app_flask
+    ports:
+      - "5000:5000"
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - ./web_nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - nginx_network     
+
+
+  app_flask:
+    image: app_flask_test
+    build:
+      context: ./app_flask
+      dockerfile: Dockerfile
+    expose: 
+      - 5000
+    networks:
+      - nginx_network
+
+networks:
+  nginx_network:
+    driver: bridge

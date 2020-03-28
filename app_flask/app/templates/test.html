@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='test.css')}}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid h-100">
+    <div class="row h-100">
+
+            <div class="col-12 h-25 m-10 test-class">
+                <h1 class="">Test Page</h1>
+            </div>
+            
+            <div class="col-12 h-75 m-10 test">
+                    <div class="m-10">
+                        <h2>h2</h2>
+                    </div>
+            </div>
+
+    </div>
+</div>
+
+
+<script>
+        // for jinja2
+
+</script>
+
+<script src="{{ url_for('static', filename='test.js') }}"></script>
+
+{% endblock %}
