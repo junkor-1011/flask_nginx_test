@@ -9,7 +9,7 @@ flask_nginx_test
 
 ------
 
-- `ToDo List <./todo.rst>`
+- `ToDo List <./todo.rst>`__
 
 ------
 
