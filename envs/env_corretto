@@ -1,0 +1,4 @@
+BASE_IMAGE=amazoncorretto:8
+USER_UID=1000
+PORT=8443
+
