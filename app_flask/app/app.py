@@ -12,8 +12,8 @@ from flask import Flask, render_template, request, jsonify, make_response,\
 
 app = Flask(__name__)
 
-app.secret_key = md5(str(uuid4()).encode()).hexdigest()
-app.config['SECRET_KEY'] = sha256(str(uuid4().encode())).hexdigest()
+app.secret_key = md5(str(uuid4()).encode()).hexdigest()     # 要らないかも?
+app.config['SECRET_KEY'] = sha256(str(uuid4()).encode()).hexdigest()
 
 
 @app.route('/')
