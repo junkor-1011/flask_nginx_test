@@ -4,10 +4,6 @@ services:
   web_nginx:
     #image: nginx:alpine
     image: nginx:1.17.9-alpine
-    #image: flask_app_test_ngix
-    #build:
-    #  context: ./web_nginx
-    #  dockerfile: Dockerfile
     depends_on:
     - app_flask
     ports:
@@ -16,16 +12,16 @@ services:
       - ./web_nginx/conf.d:/etc/nginx/conf.d
       - ./web_nginx/ssl:/etc/nginx/ssl
     networks:
-      - nginx_network     
+      - nginx_network
 
   app_flask:
-    image: app_flask_test
-    build:
-      context: ./app_flask
-      dockerfile: Dockerfile
-      args:
-        - BASE_IMAGE=${BASE_IMAGE}
-        - USER_UID=${USER_UID}
+    image: app_flask_test_${src_tag}
+    #build:
+      #context: ./app_flask/build_image/${src_tag}
+      #dockerfile: ${DOCKERFILE}
+      #args:
+      #  - BASE_IMAGE=${BASE_IMAGE}
+      #  - USER_UID=${USER_UID}
     expose: 
       - 5000
     networks:

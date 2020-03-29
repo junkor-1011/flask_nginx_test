@@ -1,3 +1,5 @@
+src_tag=centos8
+DOCKERFILE=Dockerfile
 BASE_IMAGE=centos:8
 USER_UID=1000
 PORT=8443
