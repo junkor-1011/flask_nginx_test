@@ -12,3 +12,4 @@ sh ${BUILD_DIR}/slim_buster/build.sh
 sh ${BUILD_DIR}/buster/build.sh
 sh ${BUILD_DIR}/centos8/build.sh
 sh ${BUILD_DIR}/amazoncorretto8/build.sh
+sh ${BUILD_DIR}/openjdk8_slim_buster/build.sh

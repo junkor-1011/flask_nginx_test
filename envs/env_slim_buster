@@ -1,6 +1,4 @@
 src_tag=slim_buster
-DOCKERFILE=Dockerfile
-BASE_IMAGE=python:3.8-slim-buster
 USER_UID=1000
 PORT=8443
 
