@@ -8,7 +8,7 @@ cd $SCRIPT_DIR
 # symbolicの実体を辿ってimageをbuild
 # ref: https://blog.kkty.jp/entry/2019/06/16/214951
 tar -czh . | docker build \
-        -t app_flask_test_buster \
+        -t app_flask_test_slim_buster \
         --build-arg BASE_IMAGE=python:3.8-slim-buster \
         --build-arg USER_UID=1000 \
         - 

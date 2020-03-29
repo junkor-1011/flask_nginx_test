@@ -2,7 +2,7 @@
 
 import json, io, datetime, codecs, os, random
 from uuid import uuid4
-from hashlib import md5
+from hashlib import md5, sha256
 
 
 from flask import Flask, render_template, request, jsonify, make_response,\
@@ -13,6 +13,7 @@ from flask import Flask, render_template, request, jsonify, make_response,\
 app = Flask(__name__)
 
 app.secret_key = md5(str(uuid4()).encode()).hexdigest()
+app.config['SECRET_KEY'] = sha256(str(uuid4().encode())).hexdigest()
 
 
 @app.route('/')
