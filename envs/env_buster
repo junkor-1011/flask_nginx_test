@@ -1,0 +1,6 @@
+src_tag=buster
+DOCKERFILE=Dockerfile
+BASE_IMAGE=python:3.8-buster
+USER_UID=1000
+PORT=8443
+
