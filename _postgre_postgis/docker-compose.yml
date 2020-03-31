@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  db:
+    container_name: postgis_test
+    image: mdillon/postgis:11-alpine
+#    image: mdillon/postgis:11
+    environment:
+      POSTGRES_DB: postgre
+      POSTGRES_USER: puser
+      POSTGRES_PASSWORD: postgis
+    volumes:
+    - ./db/data:/var/lib/postgresql/data
+    - ./db/sql:/docker-entrypoint-initdb.d
+    ports:
+    - 9432:5432
+
