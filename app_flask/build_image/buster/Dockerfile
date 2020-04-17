@@ -3,7 +3,7 @@
 # ARG: USER_UID
 
 
-ARG BASE_IMAGE=python:3.8-buster
+ARG BASE_IMAGE=python:3.7-buster
 
 
 FROM ${BASE_IMAGE}
@@ -13,6 +13,7 @@ RUN apt-get clean && \
     apt-get -y update && \
     apt-get install -y --no-install-recommends \
     build-essential \
+    libpq-dev \
     libpcre3 libpcre3-dev \
     zlib1g zlib1g-dev \
     openssl libssl-dev
@@ -41,9 +42,9 @@ USER ${USER_UID}
 WORKDIR /app
 
 # pip
+ENV PATH $PATH:/home/app/.local/bin
 RUN python3 -m pip install --user --upgrade pip && \
     python3 -m pip install -r requirements.txt --user
-ENV PATH $PATH:/home/app/.local/bin
 
 CMD ["uwsgi", "--ini", "uwsgi.ini"]
 

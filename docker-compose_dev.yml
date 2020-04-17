@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  web_nginx:
+    #image: nginx:alpine
+    image: nginx:1.17.9-alpine
+    depends_on:
+      - app_flask
+    ports:
+      - "${PORT}:443"
+    volumes:
+      - ./web_nginx/conf.d:/etc/nginx/conf.d
+      - ./web_nginx/ssl:/etc/nginx/ssl
+    networks:
+      - nginx_network
+
+  app_flask:
+    image: app_flask_test_${src_tag}
+    #build:
+      #context: ./app_flask/build_image/${src_tag}
+      #dockerfile: ${DOCKERFILE}
+      #args:
+      #  - BASE_IMAGE=${BASE_IMAGE}
+      #  - USER_UID=${USER_UID}
+    expose: 
+      - 5000
+    networks:
+      - nginx_network
+    volumes:
+      - ./app_flask/app:/app
+
+networks:
+  nginx_network:
+    driver: bridge

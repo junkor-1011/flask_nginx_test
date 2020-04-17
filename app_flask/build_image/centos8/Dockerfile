@@ -46,9 +46,9 @@ USER ${USER_UID}
 WORKDIR /app
 
 # pip
+ENV PATH $PATH:/home/app/.local/bin
 RUN python3 -m pip install --user --upgrade pip && \
     python3 -m pip install -r requirements.txt --user
-ENV PATH $PATH:/home/app/.local/bin
 
 CMD ["uwsgi", "--ini", "uwsgi.ini"]
 

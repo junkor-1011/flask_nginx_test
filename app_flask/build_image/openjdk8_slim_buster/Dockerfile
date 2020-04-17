@@ -19,6 +19,7 @@ RUN apt-get clean && \
     apt-get install -y --no-install-recommends \
     build-essential \
     ${PYTHON} ${PYTHON}-dev python3-pip python3-setuptools \
+    libpq-dev \
     libpcre3 libpcre3-dev \
     zlib1g zlib1g-dev \
     openssl libssl-dev
@@ -47,9 +48,9 @@ USER ${USER_UID}
 WORKDIR /app
 
 # pip
+ENV PATH $PATH:/home/app/.local/bin
 RUN ${PYTHON} -m pip install --user --upgrade pip && \
     ${PYTHON} -m pip install -r requirements.txt --user
-ENV PATH $PATH:/home/app/.local/bin
 
 CMD ["uwsgi", "--ini", "uwsgi.ini"]
 

@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block head %}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <div class="col-4 h-10">
+            <h2>
+                Hello, World!
+            </h2>
+        </div>
+        <div class="col-8 h-10"></div>
+        <!--
+        <div class="w-100 h-0"></div>
+        -->
+        <div class="col-3">
+            <a href="{{url_for('test')}}">test</a>
+        </div>
+        <div class="col-9"></div>
+        <!--
+        <div class="w-100 h-5"></div>
+        -->
+        <div class="col-3">
+            <a href="{{url_for('sample')}}">sample</a>
+        </div>
+        <div class="col-9"></div>
+    </div>
+</div>
+
+{% endblock %}
+
